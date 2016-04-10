@@ -1,11 +1,21 @@
 <div class="wrapper">
-  <section id="top">
-    <%= image_tag('logo.png') %>
-  </section>
+  <div class="nav">
+    <%= link_to :back do %>
+      戻る
+    <% end %>
+  </div>
 
-  <section id="btn-area">
-    <%= link_to "テスト1", show_path, {:class => "btn-blue"} %>
-    <%= link_to "テスト2", root_path, {:class => "btn-blue"} %>
-    <%= link_to "テスト3", root_path, {:class => "btn-blue"} %>
+  <section id="member">
+    <% @all_member.each do |m| %>
+      <%= link_to member_path(m) do %>
+        <div class="m-area">
+          <% @image = m["avatar_image_url"] %>
+          <img src=<%= @image %> class="m-img">
+          <div class="m-name-area">
+            <%= @name = m["name"] %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </section>
 </div>

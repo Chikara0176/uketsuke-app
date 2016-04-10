@@ -1,21 +1,17 @@
 <div class="wrapper">
-  <div class="nav">
-    <%= link_to :back do %>
-      戻る
-    <% end %>
-  </div>
+  <section id="second">
+    この方で間違いありませんか？
+  </section>
 
-  <section id="member">
-    <% @all_member.each do |m| %>
-      <%= link_to show_path(m["account_id"], m) do %>
-        <div class="m-area">
-          <% @image = m["avatar_image_url"] %>
-          <img src=<%= @image %> class="m-img">
-          <div class="m-name-area">
-            <%= @name = m["name"] %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+  <section id="user-top">
+    <img src=<%= params["avatar_image_url"] %>>
+    <div class="user-name">
+      <%= params["name"] %>
+    </div>
+  </section>
+
+  <section id="btn-area">
+    <%= link_to "呼び出す", thanks_path(params), {:class => "btn-blue"} %>
+    <%= link_to "キャンセル", root_path, {:class => "btn-blue"} %>
   </section>
 </div>
