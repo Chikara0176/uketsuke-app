@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   # require 'httpclient'
   require 'open-uri'
   require 'json'
+
   def index
     json_file_path = 'app/assets/shikaku_contact.json'
     # 読み込んで
