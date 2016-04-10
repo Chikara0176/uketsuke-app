@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
-  require 'net/http'
+  require 'net/https'
   require 'uri'
   require 'pp'
   require 'open-uri'
   require 'json'
-  # require 'httpclient'
+  require 'httpclient'
 
   def top
   end
@@ -23,13 +23,10 @@ class HomeController < ApplicationController
 
   def thanks
     @c = HTTPClient.new()
-    res = @c.post('https://api.chatwork.com/v1/rooms/39085887/messages', {:body => "来客です。", :X-ChatWorkToken => "8451e9de6e295633c6144e7ed8a2f8ae"} )
-    # @uri = URI.parse("https://api.chatwork.com/v1")
-    # open("https://api.chatwork.com/v1/my/status",
-    #      "X-ChatWorkToken" => "8451e9de6e295633c6144e7ed8a2f8ae"
-    #     ){|f|
-    #       f.each_line{|line| p line}
-    #     }
+    @num = 1486652
+    @header = {"X-ChatWorkToken" => "8451e9de6e295633c6144e7ed8a2f8ae"}
+    @res = @c.post('https://api.chatwork.com/v1/rooms/39085887/messages',{ "body" => "[To:#{@num}]来客です。"}, @header )
+    p @res
   end
 
 end
