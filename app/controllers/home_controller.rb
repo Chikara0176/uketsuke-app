@@ -16,10 +16,6 @@ class HomeController < ApplicationController
     #     }
   end
 
-  def show
-
-  end
-
   def member
     json_file_path = 'app/assets/shikaku_contact.json'
     # 読み込んで
@@ -27,4 +23,9 @@ class HomeController < ApplicationController
       JSON.load(m)
     end
   end
+
+  def show
+
+  end
+
 end

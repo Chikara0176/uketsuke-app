@@ -1,3 +1,21 @@
-<%= @all_member.each do |m| %>
-  <% @name = m["name"] %>
-<% end %>
+<div class="wrapper">
+  <div class="nav">
+    <%= link_to :back do %>
+      戻る
+    <% end %>
+  </div>
+
+  <section id="member">
+    <% @all_member.each do |m| %>
+      <%= link_to show_path(m["account_id"], m) do %>
+        <div class="m-area">
+          <% @image = m["avatar_image_url"] %>
+          <img src=<%= @image %> class="m-img">
+          <div class="m-name-area">
+            <%= @name = m["name"] %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+</div>

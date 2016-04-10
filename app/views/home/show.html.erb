@@ -4,14 +4,14 @@
   </section>
 
   <section id="user-top">
-    <%= image_tag('ryusuke.jpg') %>
+    <img src=<%= params["avatar_image_url"] %>>
     <div class="user-name">
-      Hiramitsu Ryusuke
+      <%= params["name"] %>
     </div>
   </section>
 
   <section id="btn-area">
-    <%= link_to "テスト1", root_path, {:class => "btn-blue"} %>
-    <%= link_to "テスト2", root_path, {:class => "btn-blue"} %>
+    <%= link_to "呼び出す", root_path(params), {:class => "btn-blue"} %>
+    <%= link_to "キャンセル", root_path, {:class => "btn-blue"} %>
   </section>
 </div>
