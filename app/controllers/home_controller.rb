@@ -2,15 +2,10 @@ class HomeController < ApplicationController
   require 'net/http'
   require 'uri'
   require 'pp'
-  # require 'httpclient'
   require 'open-uri'
   require 'json'
+
   def index
-    json_file_path = 'app/assets/shikaku_contact.json'
-    # 読み込んで
-    @json_data = open(json_file_path) do |io|
-      JSON.load(io)
-    end
 
     # @uri = URI.parse("https://api.chatwork.com/v1")
     # open("https://api.chatwork.com/v1/my/status",
@@ -23,5 +18,13 @@ class HomeController < ApplicationController
 
   def show
 
+  end
+
+  def member
+    json_file_path = 'app/assets/shikaku_contact.json'
+    # 読み込んで
+    @all_member = open(json_file_path) do |m|
+      JSON.load(m)
+    end
   end
 end
