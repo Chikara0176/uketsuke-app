@@ -31,7 +31,7 @@ class HomeController < ApplicationController
     # 資格スクエアお知らせトークン
     @header = {"X-ChatWorkToken" => "0fc7920ba8eb9214d877b21854e82dc7"}
 
-    @res = @c.post('https://api.chatwork.com/v1/rooms/#{39085887}/messages',{ "body" => "[To:#{@num}]来客です。"}, @header )
+    @res = @c.post('https://api.chatwork.com/v1/rooms/48431556/messages',{ "body" => "来客です。"}, @header )
     p @res
   end
 
